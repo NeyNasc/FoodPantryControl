@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.com.ustj.FoodPantryContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "br.com.ustj.FoodPantryControl.WebApi", "br.com.ustj.FoodPantryControl.WebApi\br.com.ustj.FoodPantryControl.WebApi.csproj", "{DA1FDEFB-AB52-4E69-AC7D-93E87C1702A5}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{59426F1B-03BB-400F-865D-D972E6FDDBE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DA1FDEFB-AB52-4E69-AC7D-93E87C1702A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA1FDEFB-AB52-4E69-AC7D-93E87C1702A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA1FDEFB-AB52-4E69-AC7D-93E87C1702A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59426F1B-03BB-400F-865D-D972E6FDDBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59426F1B-03BB-400F-865D-D972E6FDDBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59426F1B-03BB-400F-865D-D972E6FDDBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59426F1B-03BB-400F-865D-D972E6FDDBE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

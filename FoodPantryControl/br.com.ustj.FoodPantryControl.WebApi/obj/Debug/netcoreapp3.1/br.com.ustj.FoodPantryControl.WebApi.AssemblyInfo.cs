@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("a22d09e6-af1f-46de-b7d2-d4b6e3b604c3")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("br.com.ustj.FoodPantryControl.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

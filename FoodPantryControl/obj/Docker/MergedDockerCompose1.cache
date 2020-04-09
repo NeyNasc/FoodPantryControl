@@ -1,0 +1,38 @@
+services:
+  br.com.ustj.foodpantrycontrol.webapi:
+    build:
+      context: C:\USTJ\FoodPantryControl\FoodPantryControl
+      dockerfile: br.com.ustj.FoodPantryControl.WebApi/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: br.com.ustj.FoodPantryControl.WebApi
+      target: base
+    container_name: br.com.ustj.FoodPantryControl.WebApi
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: brcomustjfoodpantrycontrolwebapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/netcoreapp3.1/br.com.ustj.FoodPantryControl.WebApi.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    - target: 443
+    tty: true
+    volumes:
+    - C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.WebApi:/app:rw
+    - C:\Users\Claudiney Nascimento\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\Claudiney Nascimento\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Claudiney Nascimento\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - C:\Users\Claudiney Nascimento\.nuget\packages:/root/.nuget/packages:ro
+    - C:\USTJ\FoodPantryControl\FoodPantryControl:/src:rw
+version: '3.4'

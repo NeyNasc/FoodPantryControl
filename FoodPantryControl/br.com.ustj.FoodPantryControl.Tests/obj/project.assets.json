@@ -901,6 +901,16 @@
         "build": {
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "br.com.ustj.FoodPantryControl.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/br.com.ustj.FoodPantryControl.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/br.com.ustj.FoodPantryControl.Domain.dll": {}
+        }
       }
     }
   },
@@ -3494,11 +3504,17 @@
         "xunit.runner.visualstudio.2.4.0.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "br.com.ustj.FoodPantryControl.Domain/1.0.0": {
+      "type": "project",
+      "path": "../br.com.ustj.FoodPantryControl.Domain/br.com.ustj.FoodPantryControl.Domain.csproj",
+      "msbuildProject": "../br.com.ustj.FoodPantryControl.Domain/br.com.ustj.FoodPantryControl.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.NET.Test.Sdk >= 16.5.0",
+      "br.com.ustj.FoodPantryControl.Domain >= 1.0.0",
       "coverlet.collector >= 1.2.0",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
@@ -3533,7 +3549,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\USTJ\\FoodPantryControl\\FoodPantryControl\\br.com.ustj.FoodPantryControl.Domain\\br.com.ustj.FoodPantryControl.Domain.csproj": {
+              "projectPath": "C:\\USTJ\\FoodPantryControl\\FoodPantryControl\\br.com.ustj.FoodPantryControl.Domain\\br.com.ustj.FoodPantryControl.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

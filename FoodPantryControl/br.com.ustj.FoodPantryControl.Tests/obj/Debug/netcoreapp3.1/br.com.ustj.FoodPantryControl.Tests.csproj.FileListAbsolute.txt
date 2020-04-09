@@ -94,3 +94,6 @@ C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.Tests\
 C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.Tests\obj\Debug\netcoreapp3.1\br.com.ustj.FoodPantryControl.Tests.dll
 C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.Tests\obj\Debug\netcoreapp3.1\br.com.ustj.FoodPantryControl.Tests.pdb
 C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.Tests\obj\Debug\netcoreapp3.1\br.com.ustj.FoodPantryControl.Tests.genruntimeconfig.cache
+C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.Tests\bin\Debug\netcoreapp3.1\br.com.ustj.FoodPantryControl.Domain.exe
+C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.Tests\bin\Debug\netcoreapp3.1\br.com.ustj.FoodPantryControl.Domain.dll
+C:\USTJ\FoodPantryControl\FoodPantryControl\br.com.ustj.FoodPantryControl.Tests\bin\Debug\netcoreapp3.1\br.com.ustj.FoodPantryControl.Domain.pdb

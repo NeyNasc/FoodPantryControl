@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  ustj-foodpantrycontrol-database:
+    image: postgres:9.5
+    restart: always
+    environment:  
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=FoodPantryControl
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - ustj-foodpantrycontrol-network   
+
+  ustj-foodpantrycontrol-webapi:
+    image: ustj-foodpantrycontrol-webapi
+    build:
+      context: .
+      dockerfile: br.com.ustj.FoodPantryControl.Webapi/Dockerfile
+    environment:
+      FOODPANTRY_CONN: Host=ustj-foodpantrycontrol-database;Port=5432;Database=foodpantrycontrol;User Id=postgres;Password=postgres;      
+      ALLOWED_HOSTS: http://localhost:54217
+    ports:
+      - 54217:80
+    depends_on:
+      - ustj-foodpantrycontrol-database
+    networks:
+      - ustj-foodpantrycontrol-network
+
+volumes:
+  pgservers:
+  pgdata:
+
+networks:
+  ustj-foodpantrycontrol-network:

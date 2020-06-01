@@ -1,0 +1,124 @@
+﻿<#@ template hostspecific="true" language="C#" debug="true" #>
+<#@ assembly name="EnvDte" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Diagnostics" #>
+<#
+	//Debugger.Launch();
+	var namespaceOfBuilders = "Tests";
+	var project = GetProjectContainingFile("Runner.cs");
+	var dtoTypes = GetClassesOf(project).Where(c => c.Name.EndsWith("ReportModel")).ToList();	
+#>
+
+
+	<# 
+	foreach(var dtoType in dtoTypes)
+	{
+		#>
+	
+	
+			<# var list = FindProperties(dtoType.Members); #>
+
+		<# foreach (var item in list)
+        //foreach
+		{
+            if(item.Type.AsFullName == "System.DateTime") {	 
+                #> MapProperty(t => t.<#= item.Name #>, new NullableDateTimeConverter("ddd MMM dd HH:mm:ss 'GMT' yyyy", new CultureInfo("pt-BR")));
+		        <#
+            }else {
+                #> MapProperty(t => t.<#= item.Name #>);
+		        <#
+            }
+        
+        }//foreachend#>
+
+	<#
+		}
+	#>
+
+
+
+
+
+
+
+
+
+
+
+<#+
+	public List<EnvDTE.ProjectItem> GetProjectItemsRecursively(EnvDTE.ProjectItems items)
+	{
+		var ret = new List<EnvDTE.ProjectItem>();
+		
+		if (items == null) return ret;
+		
+		foreach(EnvDTE.ProjectItem item in items)
+		{
+			ret.Add(item);
+			ret.AddRange(GetProjectItemsRecursively(item.ProjectItems));
+		}
+		
+		return ret;
+	}
+
+	public string GetListedType(EnvDTE.CodeProperty property)
+    {
+		return property.Type.AsFullName.Replace("System.Collections.Generic.List<", "").Replace(">","");
+    }
+
+	public EnvDTE.Project GetProjectContainingFile(string filename)
+    {
+		var visualStudio = (this.Host as IServiceProvider).GetService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
+		return visualStudio.Solution.FindProjectItem(filename).ContainingProject as EnvDTE.Project;
+	}
+
+	public List<EnvDTE.CodeClass> GetClassesOf(EnvDTE.Project project)
+	{
+		var items = GetProjectItemsRecursively(project.ProjectItems);
+
+		var classes = new List<EnvDTE.CodeClass>();
+
+		foreach(var item in items)
+        {
+			if(item.FileCodeModel != null)
+            {
+				foreach (EnvDTE.CodeElement element in item.FileCodeModel.CodeElements)
+				{
+					if (element is EnvDTE.CodeNamespace)
+					{
+						EnvDTE.CodeNamespace ns = (EnvDTE.CodeNamespace)element;
+					
+						foreach (EnvDTE.CodeElement elem in ns.Members)
+						{
+							if (elem is EnvDTE.CodeClass)
+							{
+								classes.Add(elem as EnvDTE.CodeClass);
+							}
+						}
+					}
+				}
+            }
+        }
+
+		return classes;
+	}
+
+	public List<EnvDTE.CodeProperty> FindProperties(EnvDTE.CodeElements elements)
+    {
+        List<EnvDTE.CodeProperty> properties = new List<EnvDTE.CodeProperty>();
+        
+        foreach (EnvDTE.CodeElement element in elements)
+        {
+            EnvDTE.CodeProperty p = element as EnvDTE.CodeProperty;
+        
+            if (p != null)
+                properties.Add(p);            
+        }
+    
+        return properties;
+    }
+	
+	#>

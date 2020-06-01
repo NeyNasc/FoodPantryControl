@@ -1,0 +1,10 @@
+version: '3.7'
+
+volumes:
+  pgservers:
+  pgdata:
+
+networks:
+  ustj-foodpantrycontrol-network:
+    name: public
+    external: true

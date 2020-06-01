@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.2.xsd">
+   <suppress>
+      <notes><![CDATA[
+      file name: Npgsql.EntityFrameworkCore.PostgreSQL:3.1.0
+      ]]></notes>
+      <filePath regex="true">.*\bGcsb\.Gedoc\.Infrastructure\.dll</filePath>
+      <packageUrl regex="true">^pkg:nuget/Npgsql\.EntityFrameworkCore\.PostgreSQL@.*$</packageUrl>
+      <cve>CVE-2014-0060</cve>
+   </suppress>
+</suppressions>
+
+Gcsb.Gedoc.Infrastructure

@@ -6,7 +6,7 @@ namespace br.com.ustj.FoodPantryControl.Application.Repositories.Item
 {
     public interface IItemReadOnlyRepository
     {
-        Domain.Item.Item GetItemRepository(Expression<Func<Domain.Item.Item, bool>> expression);
+        Domain.Item.Item GetItemRepository(string barcode);
        List<Domain.Item.Item> GetAllItemRepository();
     }
 }

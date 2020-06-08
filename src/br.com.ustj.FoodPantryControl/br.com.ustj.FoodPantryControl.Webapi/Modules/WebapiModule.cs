@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using br.com.ustj.FoodPantryControl.Application.Boudaries;
 using br.com.ustj.FoodPantryControl.Application.Boudaries.Item;
+using br.com.ustj.FoodPantryControl.Webapi.UseCases.Delete;
 using br.com.ustj.FoodPantryControl.Webapi.UseCases.Gedoc;
 using System.Linq;
 
@@ -21,6 +22,7 @@ namespace br.com.ustj.FoodPantryControl.Webapi.Modules
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<ItemPresenter>().As<IOutputPort<ItemOutput>>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<ItemDeletePresenter>().As<IOutputPort<ItemOutput>>().AsSelf().InstancePerLifetimeScope();
         }
     }
 }

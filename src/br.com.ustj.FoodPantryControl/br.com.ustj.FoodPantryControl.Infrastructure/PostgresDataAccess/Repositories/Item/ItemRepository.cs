@@ -31,13 +31,13 @@ namespace br.com.ustj.FoodPantryControl.Infrastructure.PostgresDataAccess.Reposi
         public List<Domain.Item.Item> GetAllItemRepository()
         {
             using var context = new Context();
-            return mapper.Map<List<Domain.Item.Item>>(context.Item.ToList());
+            return mapper.Map<List<Domain.Item.Item>>(context.Item.ToList().OrderByDescending(o=>o.InsertDate));
         }
 
-        public Domain.Item.Item GetItemRepository(Expression<Func<Domain.Item.Item, bool>> expression)
+        public Domain.Item.Item GetItemRepository(string barcode)
         {
             using var context = new Context();
-            var repository = context.Item.Where(mapper.Map<Expression<Func<Entities.Item.Item, bool>>>(expression)).FirstOrDefault();
+            var repository = context.Item.FirstOrDefault(w=> w.BarCode.Equals(barcode));
 
             return mapper.Map<Domain.Item.Item>(repository);
         }

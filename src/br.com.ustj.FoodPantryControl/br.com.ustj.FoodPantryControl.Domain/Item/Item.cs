@@ -19,5 +19,10 @@ namespace br.com.ustj.FoodPantryControl.Domain.Item
             this.ExpirationDate = expirationDate;
             this.InsertDate = insertDate;
         }
+
+        public void SetNewInsertDate(DateTime newnow)
+        {
+            this.InsertDate = newnow;
+        }
     }
 }
